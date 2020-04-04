@@ -7,5 +7,5 @@ array
 
 linked list
 - [singly linked list](/linked_list/LinkedList.java)
-- [circular linked list]](/linked_list/CircularLinkedList.java)
-- [singly]](/linked_list/Iterator.java) / [circular]](/linked_list/CircularIterator.java) iterators
+- [circular linked list](/linked_list/CircularLinkedList.java)
+- [singly](/linked_list/Iterator.java) / [circular](/linked_list/CircularIterator.java) iterators
