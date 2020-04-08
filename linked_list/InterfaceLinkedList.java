@@ -1,6 +1,6 @@
 package linked_list;
 
-public interface InterfaceLinkedList {
+interface InterfaceLinkedList {
 	boolean isEmpty();
 	// Iterator getIterator();
 	void insertAtFront(int data);

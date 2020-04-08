@@ -1,5 +1,5 @@
 package array;
 
-public interface InterfaceSortedArray {
+interface InterfaceSortedArray {
 	int binarySearch(int item);
 }

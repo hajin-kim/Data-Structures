@@ -1,6 +1,6 @@
 package linked_list;
 
-public interface InterfaceIterator {
+interface InterfaceIterator {
 	boolean atEnd();
 	int getData();
 	void next();

@@ -2,7 +2,8 @@ package linked_list;
 
 public class CircularIterator implements InterfaceIterator {
 	private final Node header;
-	private Node prev, cur;
+	private Node prev;
+	private Node cur;
 
 	public CircularIterator(Node _header) {
 		header = _header;

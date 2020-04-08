@@ -1,11 +1,11 @@
 package linked_list;
 
-public class Iterator implements InterfaceIterator {
-	private final LinkedList llist;
-	private Node prev;
-	private Node cur;
+public class DoublyIterator implements InterfaceIterator {
+	private final DoublyLinkedList llist;
+	private DoublyNode prev;
+	private DoublyNode cur;
 
-	public Iterator(LinkedList _caller, Node first) {
+	public DoublyIterator(DoublyLinkedList _caller, DoublyNode first) {
 		llist = _caller;
 		prev = null;
 		cur = first;
@@ -13,6 +13,10 @@ public class Iterator implements InterfaceIterator {
 
 	public boolean atEnd() {
 		return cur == null;
+	}
+
+	public boolean atFront() {
+		return prev == null;
 	}
 
 	public int getData() {
@@ -28,13 +32,28 @@ public class Iterator implements InterfaceIterator {
 		cur = cur.getNext();
 	}
 
+	public void prev() {
+		if (this.atFront())
+			throw new IndexOutOfBoundsException("iterator reached at the front");
+		cur = prev;
+		prev = cur.getPrev();
+	}
+
 	public void insertAfter(int data) {
 		if (this.atEnd())
 			throw new IndexOutOfBoundsException("iterator reached at the end");
-		// 	Node _node = new Node(data);
-		// 	node.setNext(cur.getNext());
-		// 	cur.setNext(_node);
 		llist.insertAfter(cur, data);
+	}
+
+	public void insertBefore(int data) {
+		if (this.atEnd()) {
+			llist.insertAtEnd(data);
+			prev = prev.getNext();
+		}
+		else {
+			llist.insertBefore(cur, data);
+			prev = cur.getPrev();
+		}
 	}
 
 	public int deleteCurrent() {
@@ -47,6 +66,8 @@ public class Iterator implements InterfaceIterator {
 		prev.setNext(cur);
 		if (this.atEnd())
 			llist.setLastNode(prev);
+		else
+			cur.setPrev(prev);
 		
 		return ret;
 	}

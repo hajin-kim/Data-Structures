@@ -9,6 +9,10 @@ public class LinkedList implements InterfaceLinkedList {
 		last = null;
 	}
 
+	void setLastNode(Node _node) {
+		last = _node;
+	}
+
 	public boolean isEmpty() {
 		return first == null;
 	}
@@ -26,6 +30,15 @@ public class LinkedList implements InterfaceLinkedList {
 		first = _node;
 	}
 
+	public void insertAtEnd(int data) {
+		Node _node = new Node(data);
+		if (this.isEmpty())
+			first = _node;
+		else 
+			last.setNext(_node);
+		last = _node;
+	}
+
 	public void insertAfter(Node before, int data) {
 		if (before == null)
 			throw new NullPointerException("the given node is null");
@@ -34,15 +47,6 @@ public class LinkedList implements InterfaceLinkedList {
 		before.setNext(_node);
 		if (_node.getNext() == null)
 			last = _node;
-	}
-
-	public void insertAtEnd(int data) {
-		Node _node = new Node(data);
-		if (this.isEmpty())
-			first = _node;
-		else 
-			last.setNext(_node);
-		last = _node;
 	}
 
 	public int deleteFirst() {
@@ -58,9 +62,5 @@ public class LinkedList implements InterfaceLinkedList {
 	public void printAll() {
 		for (Node cur = first; cur != null; cur = cur.getNext())
 			System.out.println(cur.getData());
-	}
-
-	void setLastNode(Node _node) {
-		last = _node;
 	}
 }
