@@ -1,5 +1,6 @@
 import array.*;
 import linked_list.*;
+import queue.*;
 
 public class Main {
 	public static void main(String[] args) {
@@ -129,6 +130,44 @@ public class Main {
 				System.out.println(i.getData());
 				n += 10;
 			}
+		}
+
+		// DoublyLinkedList
+		{
+			DoublyLinkedList l = new DoublyLinkedList();
+			// l.deleteFirst();
+			l.insertAtEnd(1);
+			l.insertAtFront(5);
+			l.insertAtFront(4);
+			l.insertAtFront(3);
+			l.deleteFirst();
+			l.insertAtFront(2);
+			l.insertAtEnd(1);
+			l.insertAtEnd(0);
+			l.deleteLast();
+			l.printAll();
+
+			int n = 10;
+			for (DoublyIterator i = l.getIterator(); !i.atEnd(); i.next()) {
+				i.insertBefore(n*10);
+				i.insertAfter(n);
+				i.deleteCurrent();
+				i.prev();
+				System.out.println(i.getData());
+				i.next();
+				System.out.println(i.getData());
+				n += 10;
+			}
+			l.printAll();
+		}
+
+		System.out.println("Queue");
+		// Queue
+		{
+			Queue q = new Queue();
+			q.enqueue(1);
+			System.out.println(q.dequeue());
+			System.out.println(q.isEmpty());
 		}
 	}
 }
